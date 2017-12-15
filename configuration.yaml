@@ -65,6 +65,7 @@ tts:
 
 group: !include groups.yaml
 script: !include scripts.yaml
+automation: !include automations.yaml
 
 # mqtt
 mqtt: 
@@ -74,19 +75,3 @@ mqtt:
   username: pukipuki
   password: pukipuki
 
-automation:
-  - id: my_unique_id  # <-- Required for editor to work.
-    alias: Hello world
-    trigger:
-    - platform: state 
-      entity_id: sun.sun
-      from: below_horizon
-      to: above_horizon
-    condition:
-    - condition: numeric state
-      entity_id: sensor.temperature
-      above: 17
-      below: 25
-      value_template: '{{ float(state.state) + 2 }}'
-    action:
-    - service: light.turn_on
