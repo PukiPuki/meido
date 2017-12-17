@@ -63,6 +63,8 @@ sensor:
 tts:
   - platform: google
 
+customize: !include customize.yaml
+light: !include lights.yaml
 group: !include groups.yaml
 #automation: !include automations.yaml
 script: !include scripts.yaml
@@ -75,33 +77,3 @@ mqtt:
   username: pukipuki
   password: pukipuki
 
-light:
-  - platform: mqtt_json
-    name: ceiling led 1
-    state_topic: "ceiling/led/s"
-    command_topic: "ceiling/led/c"
-    effect: true
-    effect_list:
-      - slavery mode
-      - netorare mode
-    brightness: true
-    rgb: true
-    optimistic: true
-
-input_number:
-  porch_animation_speed:
-    name: Porch Animation Speed
-    initial: 150
-    min: 1
-    max: 150
-    step: 10
- 
-group:
-  default_view:
-    view: no
-    icon: mdi:home 
-  myroom:
-    name: DF
-    view: yes
-    entities:
-      - input_number.porch_animation_speed

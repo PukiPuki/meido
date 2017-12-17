@@ -1,0 +1,25 @@
+  - platform: mqtt_json
+    name: "df ceiling led"
+    state_topic: "df/ceiling/led/s"
+    command_topic: "df/ceiling/led/c"
+    effect: true
+    effect_list:
+      - netorare mode
+      - bishonen mode
+    brightness: true
+    rgb: true
+    optimistic: true
+    qos: 0
+    
+  - platform: mqtt
+    name: 'Office RGB light'
+    state_topic: 'office/rgb1/light/status'
+    command_topic: 'office/rgb1/light/switch'
+    brightness_state_topic: 'office/rgb1/brightness/status'
+    brightness_command_topic: 'office/rgb1/brightness/set'
+    rgb_state_topic: 'office/rgb1/rgb/status'
+    rgb_command_topic: 'office/rgb1/rgb/set'
+    brightness_scale: 100
+    optimistic: false
+
+

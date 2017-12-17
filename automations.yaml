@@ -1,0 +1,12 @@
+- id: test
+  alias: test
+  initial_state: true
+  hide_entity: false
+  trigger:
+    - platform: state
+      entity_id: customize.input_number.ceiling_transition_speed
+  action:
+    - service: mqtt.publish
+      data_template:
+        topic: "df/ceiling/led/c"
+        payload: '{"transition":{{ trigger.to_state.state | int }}}'
